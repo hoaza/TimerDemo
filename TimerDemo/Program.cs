@@ -6,7 +6,13 @@ namespace TimerDemo
     {
         static void Main(string[] args)
         {
-            Timer timer = new Timer();
+            Timer timer = new Timer
+            {
+                Interval = 2000
+            };
+
+            timer.Expired += (DateTime dateTime) => Console.WriteLine($"Timer elapsed {dateTime}");
+
             timer.Start();
         }
     }
