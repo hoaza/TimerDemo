@@ -8,12 +8,24 @@ namespace TimerDemo
         {
             Timer timer = new Timer
             {
-                Interval = 2000
+                Interval = 0_500
             };
 
-            timer.Expired += (DateTime dateTime) => Console.WriteLine($"Timer elapsed {dateTime}");
+            ExpiredEventHandler expiredEvent = dateTime => Console.WriteLine($"Timer elapsed on {dateTime:HH:mm:ss.fff}");
+
+            timer.Expired += expiredEvent;
+            timer.Expired += expiredEvent;
+
+            timer.Expired -= expiredEvent;
+
+            //timer.Expired += Timer_Expired;
 
             timer.Start();
+        }
+
+        private static void Timer_Expired(DateTime signaledTime)
+        {
+            Console.WriteLine($"Timer(2) elapsed on {signaledTime:HH:mm:ss.fff}");
         }
     }
 }

@@ -8,6 +8,8 @@ namespace TimerDemo
 {
     public delegate void ExpiredEventHandler(DateTime signaledTime);
 
+    //public EventHandler eventHandler;
+
 
     public class Timer
     {
@@ -19,7 +21,18 @@ namespace TimerDemo
             this.ticker = new Thread(OnTick);
         }
 
+
         public event ExpiredEventHandler Expired;
+        //{
+        //    add
+        //    {
+
+        //    }
+        //    remove
+        //    {
+
+        //    }
+        //}
 
         public int Interval { get; set; } = DEFAULT_INTERVAL;
 
